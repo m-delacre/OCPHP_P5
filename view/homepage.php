@@ -1,0 +1,43 @@
+<section class="container-fluid d-flex justify-content-center bg-dark text-light p-5 flex-wrap">
+    <img src="./public/images/logo.png" alt="logo" class="object-fit-cover rounded-circle w-25 h-25 img-fluid">
+    <div class="d-flex flex-column justify-content-center m-5">
+        <h1 class="d-flex justify-content-center fs-1">Matthieu Delacre</h1>
+        <h3 class="fs-5">Mon super slogan</h3>
+    </div>
+</section>
+
+<section class="container-lg mt-5 mb-5">
+    <h3>Contactez moi !</h3>
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="nom" class="form-control" id="nom" name="nom" aria-describedby="nom-help">
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="prenom" class="form-control" id="prenom" name="prenom" aria-describedby="prenom-help">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Votre message</label>
+            <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Envoyer</button>
+    </form>
+</section>
+
+<section class="container-lg d-flex justify-content-center mt-5 mb-5">
+    <p>Vous trouverez mon CV ici : <a href="./public/files/mon_super_cv.pdf" download="CV_Delacre_Matthieu">télécharger</a></p>
+</section>
+
+<secton class="container-lg d-flex flex-column mt-5 mb-5">
+    <h3 class="d-flex justify-content-center">Mes réseaux sociaux :</h3>
+    <div class="d-flex justify-content-center">
+        <a href="https://twitter.com/AthosReeves" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://github.com/m-delacre" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/matthieu-delacre-4a6355178/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+</secton>

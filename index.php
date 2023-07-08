@@ -13,7 +13,8 @@ $action = $_REQUEST['action'] ?? 'home';
  */
 switch ($action) {
     case 'home':
-        # code...
+        $viewController = new ViewController();
+        $viewController->displayHome();
         break;
     case 'allPost':
         # code...
@@ -23,6 +24,7 @@ switch ($action) {
         break;
     
     default:
-        # code...
+        $viewController = new ViewController();
+        $viewController->displayNotFound();
         break;
 }
