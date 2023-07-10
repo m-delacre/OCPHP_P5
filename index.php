@@ -16,10 +16,13 @@ switch ($action) {
         $viewController = new ViewController();
         $viewController->displayHome();
         break;
-    case 'allPost':
+    case 'blog':
         # code...
         break;
-    case 'about':
+    case 'contact':
+        # code...
+        break;
+    case 'connexion':
         # code...
         break;
     
