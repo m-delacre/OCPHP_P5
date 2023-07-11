@@ -2,6 +2,8 @@
 require_once('./config/autoload.php');
 require_once('./config/config.php');
 
+session_start();
+
 /**
  * URL parameter 'action' is used in the rooter below
  * default: home
@@ -19,13 +21,15 @@ switch ($action) {
     case 'blog':
         # code...
         break;
-    case 'contact':
-        # code...
-        break;
     case 'connexion':
-        # code...
+        $loginController = new LoginController();
+        $loginController->displayLogin();
         break;
-    
+    case 'deconnexion':
+        $loginController = new LoginController();
+        $loginController->logout();
+        break;
+        
     default:
         $viewController = new ViewController();
         $viewController->displayNotFound();

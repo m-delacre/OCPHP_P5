@@ -10,12 +10,13 @@ class DatabaseConnection
         $this->database = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME  . ';charset=utf8', DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
 
-    public function getInstance()
+    public static function getInstance()
     {
-        if(!self::$instance)
-        {
+        if(!self::$instance){
             self::$instance = new DatabaseConnection();
         }
+
+        return self::$instance;
     }
 
     public function getConnection(): PDO

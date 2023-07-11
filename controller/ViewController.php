@@ -11,6 +11,6 @@ class ViewController
     public function displayNotFound()
     {
         $view = new View();
-        $homePage = $view->render('./view/errorpage.php');
+        $errorPage = $view->render('./view/errorpage.php');
     }
 }

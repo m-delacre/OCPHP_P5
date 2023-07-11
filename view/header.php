@@ -7,15 +7,15 @@
             <a class="nav-link" href="./index.php?action=blog">Blog</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./index.php?action=contact">Contact</a>
+            <a class="nav-link" href="#"><?php if(isset($_SESSION['user_pseudo'])){echo $_SESSION['user_pseudo'];}?></a>
         </li>
-        <?php if (isset($_SESSION['USER_ID'])) : ?>
+        <?php if (isset($_SESSION['user_pseudo'])) : ?>
             <li class="nav-item">
-                <a class="nav-link" href="#">Déconnexion</a>
+                <a class="nav-link" href="./index.php?action=deconnexion">Déconnexion</a>
             </li>
         <?php else : ?>
             <li class="nav-item">
-                <a class="nav-link" href="#">Connexion</a>
+                <a class="nav-link" href="./index.php?action=connexion">Connexion</a>
             </li>
         <?php endif; ?>
     </ul>
