@@ -4,6 +4,7 @@ class View
 {
     public function render(string $viewPath, array $params = [])
     {
+        //content is used in mainTemplate.php
         $content = $this->renderContent($viewPath, $params);
         if(file_exists('./view/mainTemplate.php'))
         {
