@@ -9,12 +9,16 @@ class LoginController
             $user = $userManager->getUser($_POST['email'], $_POST['password']);
             if ($user != null) {
                 $_SESSION['user_pseudo'] = $user->getPseudo();
+                if ($user->getIsAdmin() === true) {
+                    $_SESSION['user_isAdmin'] = true;
+                } else {
+                    $_SESSION['user_isAdmin'] = false;
+                }
                 header('Location: ' . './index.php?action=home');
-            }else{
+            } else {
                 $view = new View();
                 $view->render('./view/loginpage.php');
             }
-            
         } else {
             $view = new View();
             $view->render('./view/loginpage.php');
