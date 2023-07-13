@@ -8,9 +8,7 @@ class LoginController
             $userManager = new UserManager(DatabaseConnection::getInstance());
             $user = $userManager->getUser($_POST['email'], $_POST['password']);
             if ($user != null) {
-                echo "isConnected";
                 $_SESSION['user_pseudo'] = $user->getPseudo();
-                var_dump($_SESSION);
                 header('Location: ' . './index.php?action=home');
             }else{
                 $view = new View();

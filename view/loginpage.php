@@ -1,4 +1,4 @@
-<?php if ($user === null || !isset($user)) : ?>
+<?php if (!isset($_SESSION['user_pseudo'])) : ?>
     <div class="container-lg mt-5 mb-5">
         <form action="./index.php?action=connexion" method="post">
             <div class="mb-3">
@@ -12,7 +12,7 @@
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </form>
     </div>
-<?php elseif (isset($user)) : ?>
+<?php elseif (isset($_SESSION['user_pseudo'])) : ?>
     <div class="alert alert-success" role="alert">
         <p>Bonjour <?= $_SESSION['user_pseudo'] ?> vous êtes déjà connecté(e).</p>
     </div>
