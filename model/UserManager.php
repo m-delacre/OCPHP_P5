@@ -23,4 +23,19 @@ class UserManager
         
         return null;
     }
+
+    public function getUserPseudo(int $id)
+    {
+        $query = "SELECT * FROM user WHERE user.id = ?;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute([$id]);
+        $result = $statement->fetch();
+        if($result)
+        {
+            $user = new User($result);
+            return $user->getPseudo();
+        }else{
+            return null;
+        }
+    }
 }
