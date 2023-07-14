@@ -19,7 +19,8 @@ switch ($action) {
         $viewController->displayHome();
         break;
     case 'blog':
-        # code...
+        $postController = new PostController();
+        $postController->displayListPost();
         break;
     case 'connexion':
         $loginController = new LoginController();
