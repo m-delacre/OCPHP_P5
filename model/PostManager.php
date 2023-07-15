@@ -30,4 +30,27 @@ class PostManager
         }
         return $posts;
     }
+
+    public function getPost(int $id)
+    {
+        $query = "SELECT * FROM article WHERE article.id = ? AND article.is_visible = true;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute([$id]);
+        $result = $statement->fetch();
+        if ($result) {
+            $post = new Post(
+                $result['id'],
+                $result['id_user'],
+                $result['date'],
+                $result['title'],
+                $result['chapo'],
+                $result['content'],
+                $result['banner'],
+                $result['is_visible'],
+            );
+            return $post;
+        }
+
+        return null;
+    }
 }

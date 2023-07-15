@@ -22,6 +22,10 @@ switch ($action) {
         $postController = new PostController();
         $postController->displayListPost();
         break;
+    case 'showPost':
+        $postController = new PostController();
+        $postController->displayPost();
+        break;
     case 'connexion':
         $loginController = new LoginController();
         $loginController->displayLogin();
