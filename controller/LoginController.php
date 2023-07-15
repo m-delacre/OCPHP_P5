@@ -6,7 +6,7 @@ class LoginController
     {
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $userManager = new UserManager(DatabaseConnection::getInstance());
-            $user = $userManager->getUser($_POST['email'], $_POST['password']);
+            $user = $userManager->connexion($_POST['email'], $_POST['password']);
             if ($user != null) {
                 $_SESSION['user_pseudo'] = $user->getPseudo();
                 if ($user->getIsAdmin() === true) {

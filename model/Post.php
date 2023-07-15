@@ -3,7 +3,7 @@
 class Post
 {
     private int $id;
-    private string $author;
+    private User $author;
     private DateTime $date;
     private string $title;
     private string $chapo;
@@ -13,14 +13,12 @@ class Post
 
     public function __construct($id, $authorID, $date, $title, $chapo, $content, $banner, $isVisible)
     {
-        $userManager = new UserManager(DatabaseConnection::getInstance());
-        $authorPseudo = $userManager->getUserPseudo($authorID);
         $this->id = $id;
-        if(is_string($authorPseudo) && $authorPseudo != null){
-            $this->author = $authorPseudo;
-        }else{
-            $this->author = "Author";
-        }
+
+        $userManager = new UserManager(DatabaseConnection::getInstance());
+        $newAuthor = $userManager->getUserById($authorID);
+        $this->author = $newAuthor;
+
         $this->date = new DateTime($date);
         $this->title = $title;
         $this->chapo = $chapo;
@@ -54,12 +52,17 @@ class Post
         $this->date = new DateTime($newDate);
     }
 
-    public function getAuthor(): string
+    public function getAuthor(): ?User
     {
         return $this->author;
     }
 
-    public function setAuthor(string $newAuthor)
+    public function getAuthorPseudo(): ?string
+    {
+        return $this->author->getPseudo();
+    }
+
+    public function setAuthor(User $newAuthor)
     {
         $this->author = $newAuthor;
     }
