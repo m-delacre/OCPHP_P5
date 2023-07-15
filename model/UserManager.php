@@ -9,7 +9,7 @@ class UserManager
         $this->connection = $connection;
     }
 
-    public function getUser(string $email, string $password): ?User
+    public function connexion(string $email, string $password): ?User
     {
         $query = "SELECT * FROM user WHERE user.mail = ? AND user.password = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
@@ -24,7 +24,7 @@ class UserManager
         return null;
     }
 
-    public function getUserPseudo(int $id)
+    public function getUserById(int $id)
     {
         $query = "SELECT * FROM user WHERE user.id = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
@@ -33,7 +33,7 @@ class UserManager
         if($result)
         {
             $user = new User($result);
-            return $user->getPseudo();
+            return $user;
         }else{
             return null;
         }
