@@ -2,13 +2,34 @@
 
 class User extends AbstractEntity
 {
-    
+    private string $mail;
+    private string $password;
     private string $firstName;
     private string $lastName;
     private string $pseudo;
     private ?string $profilPicture;
     private ?string $description;
     private bool $isAdmin;
+
+    public function getMail(): string
+    {
+        return $this->mail;
+    }
+
+    public function setMail($newMail)
+    {
+        $this->mail = $newMail;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $newPassword)
+    {
+        $this->password = $newPassword;
+    }
 
     public function getFirstName(): string
     {

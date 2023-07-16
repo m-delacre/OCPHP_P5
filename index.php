@@ -34,6 +34,9 @@ switch ($action) {
         $loginController = new LoginController();
         $loginController->logout();
         break;
+    case 'register':
+        $loginController = new LoginController();
+        $loginController->displayRegister();
         
     default:
         $viewController = new ViewController();
