@@ -10,6 +10,7 @@
                 <input type="password" name="password" class="form-control" id="password">
             </div>
             <button type="submit" class="btn btn-primary">Se connecter</button>
+            <a href="./index.php?action=register" class="btn btn-primary">S'enregistrer</a>
         </form>
     </div>
 <?php elseif (isset($_SESSION['user_pseudo'])) : ?>

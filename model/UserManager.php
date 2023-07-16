@@ -9,18 +9,17 @@ class UserManager
         $this->connection = $connection;
     }
 
-    public function connexion(string $email, string $password): ?User
+    public function connexion(string $email): ?User
     {
-        $query = "SELECT * FROM user WHERE user.mail = ? AND user.password = ?;";
+        $query = "SELECT * FROM user WHERE user.mail = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
-        $statement->execute([$email, $password]);
+        $statement->execute([$email]);
         $result = $statement->fetch();
-        if($result)
-        {
+        if ($result) {
             $user = new User($result);
             return $user;
         }
-        
+
         return null;
     }
 
@@ -30,12 +29,24 @@ class UserManager
         $statement = $this->connection->getConnection()->prepare($query);
         $statement->execute([$id]);
         $result = $statement->fetch();
-        if($result)
-        {
+        if ($result) {
             $user = new User($result);
             return $user;
-        }else{
+        } else {
             return null;
         }
+    }
+
+    public function registerUser(
+        string $email,
+        string $password,
+        string $lastName,
+        string $firstName,
+        string $pseudo,
+        string $description,
+    ) {
+        $query = "INSERT INTO `user` (`id`, `mail`, `password`, `last_name`, `first_name`, `pseudo`, `profil_picture`, `description`, `is_admin`) VALUES (NULL, ?, ?, ?, ?, ?, NULL, ?, '0');";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute([$email,password_hash($password,PASSWORD_BCRYPT),$lastName,$firstName,$pseudo,$description]);
     }
 }
