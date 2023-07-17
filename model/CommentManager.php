@@ -28,4 +28,13 @@ class CommentManager
         }
         return $comments;
     }
+
+    public function postComment(int $userID, int $articleID, string $comment)
+    {
+        $query = "INSERT INTO `comment` (`id`, `id_user`, `id_article`, `comment`, `date`, `is_visible`) VALUES (NULL, ?, ?, ?, ?, 'pending');";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $currentDateTime = new DateTime('now');
+        $currentDate = $currentDateTime->format('Y-m-d');
+        $statement->execute([$userID, $articleID, $comment,$currentDate]);
+    }
 }

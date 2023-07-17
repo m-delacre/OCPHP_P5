@@ -11,6 +11,7 @@ class LoginController
                 var_dump($user);
                 if ($_POST['email'] === $user->getMail() && password_verify($_POST['password'], $user->getPassword())) {
                     $_SESSION['user_pseudo'] = $user->getPseudo();
+                    $_SESSION['user_id'] = $user->getId();
                     if ($user->getIsAdmin() === true) {
                         $_SESSION['user_isAdmin'] = true;
                     } else {

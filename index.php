@@ -37,7 +37,11 @@ switch ($action) {
     case 'register':
         $loginController = new LoginController();
         $loginController->displayRegister();
-        
+        break;
+    case 'postComment':
+        $postController = new PostController();
+        $postController->addComment();
+        break;
     default:
         $viewController = new ViewController();
         $viewController->displayNotFound();
