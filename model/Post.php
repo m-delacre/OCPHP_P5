@@ -1,9 +1,9 @@
 <?php
 
-class Post
+class Post extends AbstractEntity
 {
-    private int $id;
-    private User $author;
+    private ?int $idUser = null;
+    private ?User $author = null;
     private DateTime $date;
     private string $title;
     private string $chapo;
@@ -11,30 +11,14 @@ class Post
     private ?string $banner;
     private bool $isVisible;
 
-    public function __construct($id, $authorID, $date, $title, $chapo, $content, $banner, $isVisible)
+    public function getIdUser(): int
     {
-        $this->id = $id;
-
-        $userManager = new UserManager(DatabaseConnection::getInstance());
-        $newAuthor = $userManager->getUserById($authorID);
-        $this->author = $newAuthor;
-
-        $this->date = new DateTime($date);
-        $this->title = $title;
-        $this->chapo = $chapo;
-        $this->content = $content;
-        $this->banner = $banner;
-        $this->isVisible = $isVisible;
+        return $this->idUser;
     }
 
-    public function getId(): int
+    public function setIdUser(int $idUser)
     {
-        return $this->id;
-    }
-
-    public function setId(int $newId)
-    {
-        $this->id = $newId;
+        $this->idUser = $idUser;
     }
 
     public function getDate(): DateTime
@@ -54,12 +38,19 @@ class Post
 
     public function getAuthor(): ?User
     {
+        if ($this->author == null) {
+            if ($this->idUser != null) {
+                $userManager = new UserManager(DatabaseConnection::getInstance());
+                $newAuthor = $userManager->getUserById($this->idUser);
+                $this->author = $newAuthor;
+            }
+        }
         return $this->author;
     }
 
     public function getAuthorPseudo(): ?string
     {
-        return $this->author->getPseudo();
+        return $this->getAuthor()->getPseudo();
     }
 
     public function setAuthor(User $newAuthor)
@@ -84,7 +75,7 @@ class Post
 
     public function setChapo(string $newChapo)
     {
-        $this->title = $newChapo;
+        $this->chapo = $newChapo;
     }
 
     public function getContent(): string

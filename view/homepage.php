@@ -8,7 +8,7 @@
 
 <section class="container-lg mt-5 mb-5">
     <h3>Contactez moi !</h3>
-    <form action="" method="POST">
+    <form action="./index.php?action=contactForm" method="POST">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
             <input type="nom" class="form-control" id="nom" name="nom" aria-describedby="nom-help">

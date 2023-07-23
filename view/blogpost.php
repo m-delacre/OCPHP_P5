@@ -23,5 +23,5 @@
             <p>Auteur : <?= $comment->getAuthorPseudo(); ?> - Date de publication : <?= $comment->getDateFr(); ?></p>
             <p>Commentaire : <?= $comment->getComment(); ?></p>
         </div>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </div>

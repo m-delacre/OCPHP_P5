@@ -6,6 +6,6 @@
             <div class="mt-3">
                 <a class="text-white text-decoration-none" href="./index.php?action=home">Administration</a>
             </div>
-        <? endif; ?>
+        <?php endif; ?>
     </div>
 </footer>

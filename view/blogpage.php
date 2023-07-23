@@ -7,5 +7,5 @@
             <h4><?= $post->getChapo(); ?></h4>
             <p><?= $post->getContent(); ?></p>
         </article>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </div>
