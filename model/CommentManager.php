@@ -22,6 +22,19 @@ class CommentManager
         return $comments;
     }
 
+    public function getListPendingComment(): array
+    {
+        $comments = [];
+        $query = "SELECT * FROM comment WHERE comment.is_visible = 'pending';";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute();
+        while (($row = $statement->fetch())) {
+            $comment = new Comment($row);
+            $comments[] = $comment;
+        }
+        return $comments;
+    }
+
     public function postComment(int $userID, int $articleID, string $comment)
     {
         $query = "INSERT INTO `comment` (`id`, `id_user`, `id_article`, `comment`, `date`, `is_visible`) VALUES (NULL, ?, ?, ?, ?, 'pending');";
