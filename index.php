@@ -42,6 +42,9 @@ switch ($action) {
         $postController = new PostController();
         $postController->addComment();
         break;
+    case 'contactForm':
+        $viewController = new ViewController();
+        $viewController->sendContactForm();
     default:
         $viewController = new ViewController();
         $viewController->displayNotFound();

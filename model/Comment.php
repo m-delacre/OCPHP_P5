@@ -1,46 +1,39 @@
 <?php
 
-class Comment
+class Comment extends AbstractEntity
 {
-    private int $id;
-    private User $author;
-    private int $articleId;
+    private ?int $idUser = null;
+    private ?User $author = null;
+    private int $idArticle;
     private string $comment;
     private DateTime $date;
     private bool $isVisible;
 
-    public function __construct($id, $authorID,$articleID,$comment,$date,$isVisible)
+    public function getIdUser(): int
     {
-        $this->id = $id;
-
-        $userManager = new UserManager(DatabaseConnection::getInstance());
-        $newAuthor = $userManager->getUserById($authorID);
-        $this->author = $newAuthor;
-
-        $this->articleId = $articleID;
-        $this->comment = $comment;
-        $this->date = new DateTime($date);
-        $this->isVisible = $isVisible;
+        return $this->idUser;
     }
 
-    public function getId(): int
+    public function setIdUser(int $idUser)
     {
-        return $this->id;
-    }
-
-    public function setId(int $newId)
-    {
-        $this->id = $newId;
+        $this->idUser = $idUser;
     }
 
     public function getAuthor(): ?User
     {
+        if ($this->author == null) {
+            if ($this->idUser != null) {
+                $userManager = new UserManager(DatabaseConnection::getInstance());
+                $newAuthor = $userManager->getUserById($this->idUser);
+                $this->author = $newAuthor;
+            }
+        }
         return $this->author;
     }
 
     public function getAuthorPseudo(): ?string
     {
-        return $this->author->getPseudo();
+        return $this->getAuthor()->getPseudo();
     }
 
     public function setAuthor(User $newAuthor)
@@ -48,14 +41,14 @@ class Comment
         $this->author = $newAuthor;
     }
 
-    public function getArticleId(): int
+    public function getIdArticle(): int
     {
-        return $this->articleId;
+        return $this->idArticle;
     }
 
-    public function setArticleId($newArticleId)
+    public function setIdArticle($newArticleId)
     {
-        $this->articleId = $newArticleId;
+        $this->idArticle = $newArticleId;
     }
 
     public function getComment(): string

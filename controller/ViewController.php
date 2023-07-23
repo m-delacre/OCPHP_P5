@@ -5,12 +5,23 @@ class ViewController
     public function displayHome()
     {
         $view = new View();
-        $homePage = $view->render('./view/homepage.php');
+        $view->render('./view/homepage.php');
     }
 
     public function displayNotFound()
     {
         $view = new View();
-        $errorPage = $view->render('./view/errorpage.php');
+        $view->render('./view/errorpage.php');
+    }
+
+    public function sendContactForm()
+    {
+        if(isset($_POST['email'],$_POST['prenom'],$_POST['nom'],$_POST['message']))
+        {
+            $contactManager = new ContactManager();
+            $contactManager->sendEmail($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['message']);
+        }
+        $view = new View();
+        $view->render('./view/homepage.php');
     }
 }

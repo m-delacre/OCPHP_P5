@@ -16,14 +16,7 @@ class CommentManager
         $statement = $this->connection->getConnection()->prepare($query);
         $statement->execute([$idArticle]);
         while (($row = $statement->fetch())) {
-            $comment = new Comment(
-                $row['id'],
-                $row['id_user'],
-                $row['id_article'],
-                $row['comment'],
-                $row['date'],
-                $row['is_visible'],
-            );
+            $comment = new Comment($row);
             $comments[] = $comment;
         }
         return $comments;
