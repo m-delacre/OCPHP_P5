@@ -37,17 +37,20 @@ class Post extends AbstractEntity
         $this->date = new DateTime($newDate);
     }
 
-    public function getLastUpdate(): ?DateTime
+    public function getLastUpdate(): ?string
     {
-        return $this->lastUpdate;
+        if ($this->lastUpdate == null) {
+            return null;
+        } else {
+            return $this->lastUpdate->format('d/m/Y');
+        }
     }
 
     public function setLastUpdate(?string $newDate)
     {
-        if($newDate == null)
-        {
+        if ($newDate == null) {
             $this->lastUpdate = null;
-        }else {
+        } else {
             $this->lastUpdate = new DateTime($newDate);
         }
     }

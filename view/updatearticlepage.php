@@ -1,4 +1,4 @@
-<form action=<?php './index.php?action=updateArticle&id' . $post->getId(); ?> method="POST">
+<form action="<?= './index.php?action=updateArticle&id=' . $post->getId(); ?>" method="POST">
     <div class="mb-3">
         <label for="title" class="form-label">Titre</label>
         <input type="text" class="form-control" id="title" name="title" value="<?= $post->getTitle() ?>" require>

@@ -22,6 +22,19 @@ class PostManager
         return $posts;
     }
 
+    public function getAllPost()
+    {
+        $posts = [];
+        $query = "SELECT * FROM article;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute();
+        while (($row = $statement->fetch())) {
+            $post = new Post($row);
+            $posts[] = $post;
+        }
+        return $posts;
+    }
+
     public function getPost(int $id)
     {
         $query = "SELECT * FROM article WHERE article.id = ? AND article.is_visible = true;";

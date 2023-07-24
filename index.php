@@ -74,7 +74,10 @@ switch ($action) {
         $adminController = new AdminController();
         $adminController->updateArticle();
         break;
-
+    case 'adminArticle':
+        $adminController = new AdminController();
+        $adminController->displayAdminArticle();
+        break;
     default:
         $viewController = new ViewController();
         $viewController->displayNotFound();

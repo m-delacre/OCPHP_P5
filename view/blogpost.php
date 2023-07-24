@@ -1,10 +1,11 @@
 <div>
     <article>
         <h3><?= $post->getTitle(); ?></h3>
-        <p>Auteur : <?= $post->getAuthorPseudo(); ?> - Date de publication : <?= $post->getDateFr(); ?></p>
-        <?php if($post->getLastUpdate() != null) :?>
-            <p>Dernière mise à jour : <?= $post->getLastUpdate() ?></p>
-        <?php endif; ?>
+        <p>Auteur : <?= $post->getAuthorPseudo(); ?> - Date de publication : <?= $post->getDateFr(); ?>
+                <?php if ($post->getLastUpdate() != null) : ?>
+                    - Dernière mise à jour : <?= $post->getLastUpdate() ?>
+                <?php endif; ?>
+            </p>
         <?php if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_pseudo']) : ?>
             <a href=<?= "./index.php?action=modifyArticle&articleId=" . $_GET['id'] ?>>Modifier</a>
         <?php endif; ?>

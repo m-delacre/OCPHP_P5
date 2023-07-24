@@ -6,5 +6,8 @@
         <li class="nav-item">
             <a class="nav-link" href="./index.php?action=adminComment">Gérer les commentaires</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./index.php?action=adminArticle">Gérer les articles</a>
+        </li>
     </ul>
 </nav>

@@ -68,7 +68,15 @@ class AdminController
     public function updateArticle()
     {
         $adminManager = new AdminManager(DatabaseConnection::getInstance());
-        $adminManager->updateArticle($_GET['articleId'], $_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['visible']);
-        header('Location: ' . './index.php?action=showPost&id=' . $_GET['articleID']);
+        $adminManager->updateArticle($_GET['id'], $_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['is_visible']);
+        header('Location: ' . './index.php?action=blog');
+    }
+
+    public function displayAdminArticle()
+    {
+        $postManager = new PostManager(DatabaseConnection::getInstance());
+        $posts = $postManager->getAllPost();
+        $view = new View();
+        $view->render('./view/adminarticlepage.php', ['posts' => $posts]);
     }
 }
