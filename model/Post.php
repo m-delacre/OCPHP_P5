@@ -5,6 +5,7 @@ class Post extends AbstractEntity
     private ?int $idUser = null;
     private ?User $author = null;
     private DateTime $date;
+    private ?DateTime $lastUpdate;
     private string $title;
     private string $chapo;
     private string $content;
@@ -34,6 +35,21 @@ class Post extends AbstractEntity
     public function setDate(string $newDate)
     {
         $this->date = new DateTime($newDate);
+    }
+
+    public function getLastUpdate(): ?DateTime
+    {
+        return $this->lastUpdate;
+    }
+
+    public function setLastUpdate(?string $newDate)
+    {
+        if($newDate == null)
+        {
+            $this->lastUpdate = null;
+        }else {
+            $this->lastUpdate = new DateTime($newDate);
+        }
     }
 
     public function getAuthor(): ?User

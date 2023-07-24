@@ -66,6 +66,14 @@ switch ($action) {
         $adminController = new AdminController();
         $adminController->manageComment();
         break;
+    case 'modifyArticle':
+        $adminController = new AdminController();
+        $adminController->displayUpdatePost();
+        break;
+    case 'updateArticle':
+        $adminController = new AdminController();
+        $adminController->updateArticle();
+        break;
 
     default:
         $viewController = new ViewController();
