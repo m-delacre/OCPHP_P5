@@ -4,7 +4,7 @@
         <a class="text-white text-decoration-none" href="./index.php?action=home">MattBlog</a>
         <?php if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_isAdmin'] === true) : ?>
             <div class="mt-3">
-                <a class="text-white text-decoration-none" href="./index.php?action=home">Administration</a>
+                <a class="text-white text-decoration-none" href="./index.php?action=administration">Administration</a>
             </div>
         <?php endif; ?>
     </div>

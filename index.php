@@ -45,6 +45,39 @@ switch ($action) {
     case 'contactForm':
         $viewController = new ViewController();
         $viewController->sendContactForm();
+        break;
+    case 'administration':
+        $adminController = new AdminController();
+        $adminController->displayAdministrationPage();
+        break;
+    case 'createPost':
+        $adminController = new AdminController();
+        $adminController->displayCreatePost();
+        break;
+    case 'postNewArticle':
+        $adminController = new AdminController();
+        $adminController->publishPost();
+        break;
+    case 'adminComment':
+        $adminController = new AdminController();
+        $adminController->displayPendingComment();
+        break;
+    case 'manageComment':
+        $adminController = new AdminController();
+        $adminController->manageComment();
+        break;
+    case 'modifyArticle':
+        $adminController = new AdminController();
+        $adminController->displayUpdatePost();
+        break;
+    case 'updateArticle':
+        $adminController = new AdminController();
+        $adminController->updateArticle();
+        break;
+    case 'adminArticle':
+        $adminController = new AdminController();
+        $adminController->displayAdminArticle();
+        break;
     default:
         $viewController = new ViewController();
         $viewController->displayNotFound();
