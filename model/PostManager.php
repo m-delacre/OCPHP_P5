@@ -35,9 +35,23 @@ class PostManager
         return $posts;
     }
 
-    public function getPost(int $id)
+    public function getVisiblePost(int $id)
     {
         $query = "SELECT * FROM article WHERE article.id = ? AND article.is_visible = true;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute([$id]);
+        $result = $statement->fetch();
+        if ($result) {
+            $post = new Post($result);
+            return $post;
+        }
+
+        return null;
+    }
+
+    public function getPost(int $id)
+    {
+        $query = "SELECT * FROM article WHERE article.id = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
         $statement->execute([$id]);
         $result = $statement->fetch();

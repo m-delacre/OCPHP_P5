@@ -13,7 +13,7 @@ class PostController
     public function displayPost()
     {
         $postManager = new PostManager(DatabaseConnection::getInstance());
-        $post = $postManager->getPost($_GET['id']);
+        $post = $postManager->getVisiblePost($_GET['id']);
         $commentManager = new CommentManager(DatabaseConnection::getInstance());
         $comments = $commentManager->getListVisibleComment($_GET['id']);
         $view = new View();
