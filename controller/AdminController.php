@@ -21,7 +21,8 @@ class AdminController
     public static function checkAdmin()
     {
         if (!isset($_SESSION['user_isAdmin']) || !$_SESSION['user_isAdmin']) {
-            throw new Exception("vous devez être admin pour accéder à cette page.");
+            //throw new Exception("vous devez être admin pour accéder à cette page.");
+            header('Location: ' . './index.php?action=notAuthorized');
         }
     }
 

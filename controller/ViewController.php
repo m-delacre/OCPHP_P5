@@ -24,4 +24,10 @@ class ViewController
         $view = new View();
         $view->render('./view/homepage.php');
     }
+
+    public function displayNotAuthorized()
+    {
+        $view = new View();
+        $view->render('./view/notauthorized.php');
+    }
 }

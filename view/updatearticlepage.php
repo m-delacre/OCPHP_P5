@@ -13,10 +13,17 @@
         </textarea>
     </div>
     <div class="mb-3">
-        <input type="radio" id="visible" name="is_visible" value=1>
-        <label for="visible">visible</label><br>
-        <input type="radio" id="hidden" name="is_visible" value=0>
-        <label for="hidden">hidden</label><br>
+        <?php if ($post->getIsVisible() === true) : ?>
+            <input type="radio" id="visible" name="is_visible" value=1 checked>
+            <label for="visible">visible</label><br>
+            <input type="radio" id="hidden" name="is_visible" value=0>
+            <label for="hidden">cacher</label><br>
+        <?php else : ?>
+            <input type="radio" id="visible" name="is_visible" value=1>
+            <label for="visible">visible</label><br>
+            <input type="radio" id="hidden" name="is_visible" value=0 checked>
+            <label for="hidden">cacher</label><br>
+        <?php endif; ?>
     </div>
     <button type="submit" class="btn btn-success">Modifier</button>
 </form>

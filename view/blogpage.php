@@ -1,11 +1,13 @@
-<div>
-    <h1>Tous nos articles :</h1>
-    <?php foreach ($posts as $post) : ?>
-        <article>
-            <h3><a class="text-decoration-none" href=<?= "./index.php?action=showPost&id=" . $post->getId(); ?>><?= $post->getTitle(); ?></a></h3>
-            <p>Auteur : <?= $post->getAuthorPseudo(); ?> - Date de publication : <?= $post->getDateFr(); ?></p>
-            <h4><?= $post->getChapo(); ?></h4>
-            <p><?= $post->getContent(); ?></p>
-        </article>
-    <?php endforeach; ?>
+<div class="container-sm d-flex flex-column blogpage">
+    <h1 class="blogpage-title">Tous nos articles :</h1>
+    <div class="d-flex flex-wrap blogpage-allCard">
+        <?php foreach ($posts as $post) : ?>
+            <article class="blogpage-card">
+                <h3 class="blogpage-card-title"><?= $post->getTitle(); ?></h3>
+                <p class="text-body-secondary blogpage-card-author">Auteur : <?= $post->getAuthorPseudo(); ?> - Date de publication : <?= $post->getDateFr(); ?></p>
+                <p class="blogpage-card-chapo"><?= $post->getChapo(); ?></p>
+                <a class="blogpage-card-btn card-link" href=<?= "./index.php?action=showPost&id=" . $post->getId(); ?>>Voir plus</a>
+            </article>
+        <?php endforeach; ?>
+    </div>
 </div>

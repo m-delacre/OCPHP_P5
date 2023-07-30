@@ -1,21 +1,23 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-center">
+<nav class="navbar bg-dark fixed-top border-body mb-0 pb-0 d-flex justify-content-center align-items-center">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="./index.php?action=home">Accueil</a>
+            <a class="nav-link text-white" href="./index.php?action=home">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./index.php?action=blog">Blog</a>
+            <a class="nav-link text-white" href="./index.php?action=blog">Blog</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><?php if(isset($_SESSION['user_pseudo'])){echo $_SESSION['user_pseudo'];}?></a>
-        </li>
+        <?php if(isset($_SESSION['user_pseudo'])): ?>
+            <li class="nav-item">
+                <p class="nav-link text-white"><?= $_SESSION['user_pseudo']; ?></p>
+            </li>
+        <?php endif; ?>
         <?php if (isset($_SESSION['user_pseudo'])) : ?>
             <li class="nav-item">
-                <a class="nav-link" href="./index.php?action=deconnexion">Déconnexion</a>
+                <a class="nav-link text-white" href="./index.php?action=deconnexion">Déconnexion</a>
             </li>
         <?php else : ?>
             <li class="nav-item">
-                <a class="nav-link" href="./index.php?action=connexion">Connexion</a>
+                <a class="nav-link text-white" href="./index.php?action=connexion">Connexion</a>
             </li>
         <?php endif; ?>
     </ul>

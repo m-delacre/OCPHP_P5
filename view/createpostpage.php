@@ -5,7 +5,7 @@
     </div>
     <div class="mb-3">
         <label for="chapo" class="form-label">Chapo</label>
-        <input type="chapo" class="form-control" id="chapo" name="chapo" require>
+        <input type="chapo" class="form-control" id="chapo" maxlength="500" name="chapo" require>
     </div>
     <div class="mb-3">
         <label for="content" class="form-label">Content</label>
@@ -14,8 +14,8 @@
     <div class="mb-3">
         <input type="radio" id="visible" name="is_visible" value=1>
         <label for="visible">visible</label><br>
-        <input type="radio" id="hidden" name="is_visible" value=0>
-        <label for="hidden">hidden</label><br>
+        <input type="radio" id="hidden" name="is_visible" value=0 checked>
+        <label for="hidden">cacher</label><br>
     </div>
     <button type="submit" class="btn btn-success">Publier</button>
 </form>

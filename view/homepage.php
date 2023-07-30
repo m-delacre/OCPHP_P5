@@ -1,8 +1,8 @@
-<section class="container-fluid d-flex justify-content-center bg-dark text-light p-5 flex-wrap">
-    <img src="./public/images/logo.png" alt="logo" class="object-fit-cover rounded-circle w-25 h-25 img-fluid">
+<section class="container-fluid bg-dark text-light p-5 homeSectionHi">
+    <img src="./public/images/logo.png" alt="logo" class="object-fit-cover rounded-circle homeLogo">
     <div class="d-flex flex-column justify-content-center m-5">
         <h1 class="d-flex justify-content-center fs-1">Matthieu Delacre</h1>
-        <h3 class="fs-5">Mon super slogan</h3>
+        <h3 class="fs-5">Développeur Web</h3>
     </div>
 </section>
 
@@ -29,15 +29,15 @@
     </form>
 </section>
 
-<section class="container-lg d-flex justify-content-center mt-5 mb-5">
-    <p>Vous trouverez mon CV ici : <a href="./public/files/mon_super_cv.pdf" download="CV_Delacre_Matthieu">télécharger</a></p>
+<section class="bg-dark sectionCV">
+    <p class="text-white">Vous trouverez mon CV ici : <a href="./public/files/mon_super_cv.pdf" download="CV_Delacre_Matthieu">télécharger</a></p>
 </section>
 
 <secton class="container-lg d-flex flex-column mt-5 mb-5">
     <h3 class="d-flex justify-content-center">Mes réseaux sociaux :</h3>
     <div class="d-flex justify-content-center">
-        <a href="https://twitter.com/AthosReeves" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://github.com/m-delacre" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/matthieu-delacre-4a6355178/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com/AthosReeves" target="_blank"><i class="fa-brands fa-twitter mx-2" style="font-size: 40px;"></i></a>
+        <a href="https://github.com/m-delacre" target="_blank"><i class="fa-brands fa-github mx-2 text-body-emphasis" style="font-size: 40px;"></i></a>
+        <a href="https://www.linkedin.com/in/matthieu-delacre-4a6355178/" target="_blank"><i class="fa-brands fa-linkedin mx-2" style="font-size: 40px;"></i></a>
     </div>
 </secton>

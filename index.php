@@ -81,6 +81,10 @@ try {
             $adminController = new AdminController();
             $adminController->displayAdminArticle();
             break;
+        case 'notAuthorized':
+            $viewController = new ViewController();
+            $viewController->displayNotAuthorized();
+            break;
         default:
             $viewController = new ViewController();
             $viewController->displayNotFound();
