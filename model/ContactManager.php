@@ -6,7 +6,7 @@ class ContactManager
     {
         ini_set('SMTP', 'smtp.mail.yahoo.fr');
         ini_set('smtp_port', 587);
-        $to = "mdelacre@protonmail.com"; // this is your Email address
+        $to = "matthieu.delacre@yahoo.fr"; // this is your Email address
         $from = $email; // this is the sender's Email address
         $first_name = $prenom;
         $last_name = $nom;
@@ -16,7 +16,7 @@ class ContactManager
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $headers .= 'Return-Receipt-To: ' . $from . '\r\n';
         $headers .= 'To: <' . $to . '>\r\n';
-        $headers .= 'From: ' . $from . '>' . '\r\n';
+        $headers .= 'From: <' . $from . '>' . '\r\n';
         if (mail($to, $subject, $message, $headers)) {
             echo "mail sent";
         } else {

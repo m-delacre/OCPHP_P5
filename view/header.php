@@ -1,4 +1,4 @@
-<nav class="navbar bg-dark fixed-top border-body mb-0 pb-0 d-flex justify-content-center align-items-center">
+<nav class="navbar bg-dark border-body mb-0 pb-0 d-flex justify-content-center align-items-center">
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link text-white" href="./index.php?action=home">Accueil</a>
