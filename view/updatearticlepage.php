@@ -28,7 +28,7 @@
             <?php endif; ?>
         </div>
         <div class="modifyArticle-btn">
-            <button type="submit" class="btn btn-success">Modifier</button>
+            <button type="submit" class="btn btn-primary">Modifier</button>
         </div>
     </form>
 </div>

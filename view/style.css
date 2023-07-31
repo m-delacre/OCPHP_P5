@@ -1,3 +1,9 @@
+/* login page */
+
+.loginpage {
+  margin-top: 25px;
+}
+
 /* HOME PAGE */
 .homeSectionHi {
   display: flex;
@@ -312,6 +318,17 @@
   font-size: 20px;
 }
 
+.blogpost-newComment {
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  background-color: rgba(104, 209, 104, 0.758);
+  color: green;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
 .comment-section {
   display: flex;
   flex-direction: column;
@@ -582,4 +599,62 @@
   .adminArticlePage-card-chapo {
     font-size: 15px;
   }
+}
+
+/* admin comment page */
+.adminCommentPage{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.adminCommentPage p{
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.adminCommentPage form {
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.adminCommentPage form label{
+  padding-bottom: 15px;
+}
+
+.adminCommentPage-comment{
+  border: 2px solid black;
+  width: 100%;
+  height: fit-content;
+}
+
+.adminCommentPage-comment-author{
+  border-bottom: 2px solid black;
+  width: 100%;
+}
+
+.adminCommentPage-comment-content{
+  border-bottom: 2px solid black;
+  width: 100%;
+}
+
+/* create article page */
+
+.createArticlePage{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* tablette */
+@media only screen and (min-width: 600px) and (max-width: 1299px){
+
+}
+
+/* mobile */
+@media only screen and (max-width: 600px){
+
 }

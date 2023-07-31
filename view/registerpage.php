@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description (280 caractère max) :</label>
-                <input type="description" name="description" class="form-control" id="description" maxlength="280">
+                <textarea type="textarea" name="description" class="form-control" id="description" maxlength="280"></textarea>
             </div>
             
             <button type="submit" class="btn btn-primary">S'enregistrer</button>
