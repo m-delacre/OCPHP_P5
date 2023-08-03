@@ -77,6 +77,14 @@ try {
             $adminController = new AdminController();
             $adminController->updateArticle();
             break;
+        case 'AdminDeleteArticle':
+            $adminController = new AdminController();
+            $adminController->displayDeleteArticle();
+            break;
+        case 'deleteArticle':
+            $adminController = new AdminController();
+            $adminController->deleteArticle();
+            break;
         case 'adminArticle':
             $adminController = new AdminController();
             $adminController->displayAdminArticle();

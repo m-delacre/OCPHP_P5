@@ -6,24 +6,35 @@
     </div>
 </section>
 
+<?php if (isset($_GET['emailsucceed'])) : ?>
+    <div class="container-lg alert alert-success mt-5" role="alert">
+        <p>Email envoyé</p>
+    </div>
+<?php endif; ?>
+<?php if (isset($_GET['emailerror'])) : ?>
+    <div class="container-lg alert alert-danger mt-5" role="alert">
+        <p>Erreur dans le formulaire de contacte verifiez les champs renseignés !</p>
+    </div>
+<?php endif; ?>
+
 <section class="container-lg mt-5 mb-5">
     <h3>Contactez moi !</h3>
     <form action="./index.php?action=contactForm" method="POST">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input type="nom" class="form-control" id="nom" name="nom" aria-describedby="nom-help">
+            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nom-help" require>
         </div>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prenom</label>
-            <input type="prenom" class="form-control" id="prenom" name="prenom" aria-describedby="prenom-help">
+            <input type="text" class="form-control" id="prenom" name="prenom" aria-describedby="prenom-help" require>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help">
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="email-help" require>
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Votre message</label>
-            <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message"></textarea>
+            <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message" require></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>

@@ -9,7 +9,7 @@ class LoginController
             $user = $userManager->connexion($_POST['email']);
             if ($user != null) {
                 var_dump($user);
-                if ($_POST['email'] === $user->getMail() && password_verify($_POST['password'], $user->getPassword())) {
+                if (htmlspecialchars($_POST['email']) === $user->getMail() && password_verify(htmlspecialchars($_POST['password']), $user->getPassword())) {
                     $_SESSION['user_pseudo'] = $user->getPseudo();
                     $_SESSION['user_id'] = $user->getId();
                     if ($user->getIsAdmin() === true) {
@@ -39,7 +39,7 @@ class LoginController
     {
         if (isset($_POST['email'], $_POST['password'], $_POST['lastName'], $_POST['firstName'], $_POST['pseudo'])) {
             $userManager = new UserManager(DatabaseConnection::getInstance());
-            $newUser = $userManager->registerUser($_POST['email'], $_POST['password'], $_POST['lastName'], $_POST['firstName'], $_POST['pseudo'], $_POST['description']);
+            $newUser = $userManager->registerUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['lastName']), htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['description']));
             header('Location: ' . './index.php?action=connexion');
         } else {
             $view = new View();

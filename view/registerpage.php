@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="pseudo" class="form-label">Pseudo :</label>
-                <input type="pseudo" name="pseudo" class="form-control" id="pseudo" maxlength="255" required>
+                <input type="pseudo" name="pseudo" class="form-control" id="pseudo" maxlength="15" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description (280 caractère max) :</label>

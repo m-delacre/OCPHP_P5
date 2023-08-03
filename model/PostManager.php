@@ -62,4 +62,11 @@ class PostManager
 
         return null;
     }
+
+    public function deleteArticle(int $id)
+    {
+        $query = "DELETE FROM `article` WHERE `id` = ?;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute([$id]);
+    }
 }

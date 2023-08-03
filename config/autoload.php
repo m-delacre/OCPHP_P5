@@ -15,4 +15,9 @@ spl_autoload_register(function($className){
         require_once('view//' . $className . '.php');
         return;
     }
+    if(file_exists('service//' . $className . '.php'))
+    {
+        require_once('service//' . $className . '.php');
+        return;
+    }
 });

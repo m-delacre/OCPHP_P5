@@ -7,7 +7,7 @@
             <a class="nav-link text-white" href="./index.php?action=blog">Blog</a>
         </li>
         <?php if(isset($_SESSION['user_pseudo'])): ?>
-            <li class="nav-item">
+            <li class="nav-item header-userName">
                 <p class="nav-link text-white"><?= $_SESSION['user_pseudo']; ?></p>
             </li>
         <?php endif; ?>

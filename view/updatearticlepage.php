@@ -31,4 +31,7 @@
             <button type="submit" class="btn btn-primary">Modifier</button>
         </div>
     </form>
+    <div class="modifyArticle-btn-delete">
+        <a href="<?= './index.php?action=AdminDeleteArticle&id=' . $post->getId(); ?>"><button class="btn btn-primary">Supprimer</button></a>
+    </div>
 </div>

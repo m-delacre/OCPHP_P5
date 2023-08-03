@@ -16,13 +16,15 @@ class ViewController
 
     public function sendContactForm()
     {
-        if(isset($_POST['email'],$_POST['prenom'],$_POST['nom'],$_POST['message']))
-        {
-            $contactManager = new ContactManager();
-            $contactManager->sendEmail($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['message']);
+        if (isset($_POST['email'], $_POST['prenom'], $_POST['nom'], $_POST['message'])) {
+            if(MDMail::sendMail(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['prenom']), htmlspecialchars($_POST['nom']), htmlspecialchars($_POST['message'])) ){
+                header('Location: ' . './index.php?action=home&emailsucceed');
+            }else{
+                header('Location: ' . './index.php?action=home&emailerror');
+            }
+        } else if (empty($_POST['email']) || empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['message'])) {
+            header('Location: ' . './index.php?action=home&emailerror');
         }
-        $view = new View();
-        $view->render('./view/homepage.php');
     }
 
     public function displayNotAuthorized()

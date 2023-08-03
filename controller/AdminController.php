@@ -36,7 +36,7 @@ class AdminController
     public function publishPost()
     {
         $adminManager = new AdminManager(DatabaseConnection::getInstance());
-        $adminManager->postArticle($_SESSION['user_id'], $_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['is_visible']);
+        $adminManager->postArticle($_SESSION['user_id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapo']), htmlspecialchars($_POST['content']), htmlspecialchars($_POST['is_visible']));
         header('Location: ' . './index.php?action=blog');
     }
 
@@ -66,7 +66,7 @@ class AdminController
     public function updateArticle()
     {
         $adminManager = new AdminManager(DatabaseConnection::getInstance());
-        $adminManager->updateArticle($_GET['id'], $_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['is_visible']);
+        $adminManager->updateArticle($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapo']), htmlspecialchars($_POST['content']), htmlspecialchars($_POST['is_visible']));
         header('Location: ' . './index.php?action=blog');
     }
 
@@ -77,5 +77,22 @@ class AdminController
         $posts = $postManager->getAllPost();
         $view = new View();
         $view->render('./view/adminarticlepage.php', ['posts' => $posts]);
+    }
+
+    public function displayDeleteArticle()
+    {
+        AdminController::checkAdmin();
+        $postManager = new PostManager(DatabaseConnection::getInstance());
+        $post = $postManager->getPost($_GET['id']);
+        $view = new View();
+        $view->render('./view/deletearticlepage.php', ['post' => $post]);
+    }
+
+    public function deleteArticle()
+    {
+        AdminController::checkAdmin();
+        $postManager = new PostManager(DatabaseConnection::getInstance());
+        $postManager->deleteArticle($_GET['id']);
+        $this->displayAdminArticle();
     }
 }
