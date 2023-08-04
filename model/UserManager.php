@@ -9,6 +9,12 @@ class UserManager
         $this->connection = $connection;
     }
 
+    /**
+     * check if the email exist and match in the database
+     * if yes create a User object with all user info
+     * 
+     * @return Object User || null
+     */
     public function connexion(string $email): ?User
     {
         $query = "SELECT * FROM user WHERE user.mail = ?;";
@@ -23,6 +29,11 @@ class UserManager
         return null;
     }
 
+    /**
+     * get a specific user by his id
+     * 
+     * @return Object user || null
+     */
     public function getUserById(int $id)
     {
         $query = "SELECT * FROM user WHERE user.id = ?;";
@@ -37,6 +48,10 @@ class UserManager
         }
     }
 
+    /**
+     * create a new user in database
+     * 
+     */
     public function registerUser(
         string $email,
         string $password,
@@ -47,6 +62,6 @@ class UserManager
     ) {
         $query = "INSERT INTO `user` (`id`, `mail`, `password`, `last_name`, `first_name`, `pseudo`, `profil_picture`, `description`, `is_admin`) VALUES (NULL, ?, ?, ?, ?, ?, NULL, ?, '0');";
         $statement = $this->connection->getConnection()->prepare($query);
-        $statement->execute([$email,password_hash($password,PASSWORD_BCRYPT),$lastName,$firstName,$pseudo,$description]);
+        $statement->execute([$email, password_hash($password, PASSWORD_BCRYPT), $lastName, $firstName, $pseudo, $description]);
     }
 }

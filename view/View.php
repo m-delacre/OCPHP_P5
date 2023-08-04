@@ -6,8 +6,7 @@ class View
     {
         //content is used in mainTemplate.php
         $content = $this->renderContent($viewPath, $params);
-        if(file_exists('./view/mainTemplate.php'))
-        {
+        if (file_exists('./view/mainTemplate.php')) {
             require('./view/mainTemplate.php');
         }
     }
@@ -16,8 +15,7 @@ class View
     {
         extract($params);
         ob_start();
-        if(file_exists($viewPath))
-        {
+        if (file_exists($viewPath)) {
             require($viewPath);
         }
         return ob_get_clean();

@@ -2,6 +2,10 @@
 
 class LoginController
 {
+    /**
+     * Display the connexion page
+     * 
+     */
     public function displayLogin()
     {
         if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -29,17 +33,25 @@ class LoginController
         }
     }
 
+    /**
+     * disconect the user and end the session
+     * 
+     */
     public function logout()
     {
         session_destroy();
         header('Location: ' . './index.php?action=home');
     }
 
+    /**
+     * display the registration page
+     * 
+     */
     public function displayRegister()
     {
         if (isset($_POST['email'], $_POST['password'], $_POST['lastName'], $_POST['firstName'], $_POST['pseudo'])) {
             $userManager = new UserManager(DatabaseConnection::getInstance());
-            $newUser = $userManager->registerUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['lastName']), htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['description']));
+            $userManager->registerUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['lastName']), htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['description']));
             header('Location: ' . './index.php?action=connexion');
         } else {
             $view = new View();

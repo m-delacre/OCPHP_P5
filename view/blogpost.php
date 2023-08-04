@@ -5,7 +5,7 @@
         <article class="container-sm blogpost">
             <div class="blogpost-header">
                 <h3 class="blogpost-title"><?= $post->getTitle(); ?></h3>
-                <?php if (AdminController::isAdmin()) : ?>
+                <?php if (AdminController::checkAdmin()) : ?>
                     <div class="blogpost-modif">
                         <a class="btn btn-primary blogpost-modif" href=<?= "./index.php?action=modifyArticle&articleId=" . $_GET['id'] ?>>Modifier</a>
                     </div>

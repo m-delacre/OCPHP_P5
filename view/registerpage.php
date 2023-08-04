@@ -25,7 +25,7 @@
                 <label for="description" class="form-label">Description (280 caractère max) :</label>
                 <textarea type="textarea" name="description" class="form-control" id="description" maxlength="280"></textarea>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">S'enregistrer</button>
         </form>
     </div>

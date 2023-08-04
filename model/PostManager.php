@@ -9,6 +9,11 @@ class PostManager
         $this->connection = $connection;
     }
 
+    /**
+     * get all the visible blog post from database
+     * 
+     * @return array of objects
+     */
     public function getAllVisiblePosts()
     {
         $posts = [];
@@ -22,6 +27,11 @@ class PostManager
         return $posts;
     }
 
+    /**
+     * get all the blog post from database
+     * 
+     * @return array of objects
+     */
     public function getAllPost()
     {
         $posts = [];
@@ -35,6 +45,11 @@ class PostManager
         return $posts;
     }
 
+    /**
+     * get a single visible blog post from database
+     * 
+     * @return object || null
+     */
     public function getVisiblePost(int $id)
     {
         $query = "SELECT * FROM article WHERE article.id = ? AND article.is_visible = true;";
@@ -49,6 +64,11 @@ class PostManager
         return null;
     }
 
+    /**
+     * get a single blog post from database
+     * 
+     * @return object || null
+     */
     public function getPost(int $id)
     {
         $query = "SELECT * FROM article WHERE article.id = ?;";
@@ -63,6 +83,10 @@ class PostManager
         return null;
     }
 
+    /**
+     * delete a specific blog post from database
+     * 
+     */
     public function deleteArticle(int $id)
     {
         $query = "DELETE FROM `article` WHERE `id` = ?;";

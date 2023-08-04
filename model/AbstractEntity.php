@@ -6,20 +6,17 @@ abstract class AbstractEntity
 
     public function __construct($data)
     {
-        if($data != null)
-        {
+        if ($data != null) {
             $this->hydrate($data);
         }
     }
 
     public function hydrate(array $data)
     {
-        foreach($data as $key => $value)
-        {
-            $key = str_replace("_", "", ucwords($key,"_"));
+        foreach ($data as $key => $value) {
+            $key = str_replace("_", "", ucwords($key, "_"));
             $method = "set" . $key;
-            if(method_exists($this,$method))
-            {
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
@@ -34,5 +31,4 @@ abstract class AbstractEntity
     {
         $this->id = $newId;
     }
-
 }

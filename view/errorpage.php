@@ -1,1 +1,1 @@
-<h1>404 not found</h1>
+<h1 class="container-sm">404 not found</h1>

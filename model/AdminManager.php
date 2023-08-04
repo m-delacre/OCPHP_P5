@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class AdminManager
 {
@@ -9,6 +9,10 @@ class AdminManager
         $this->connection = $connection;
     }
 
+    /**
+     * create new post in the database
+     * 
+     */
     public function postArticle(int $userID, string $title, string $chapo, string $content, bool $visible)
     {
         $query = "INSERT INTO `article` (`id`, `id_user`, `date`, `title`, `chapo`, `content`, `banner`, `is_visible`) VALUES (NULL, ?, ?, ?, ?, ?, NULL, ?);";
@@ -18,13 +22,20 @@ class AdminManager
         $statement->execute([$userID, $currentDate, $title, $chapo, $content, $visible]);
     }
 
+    /**
+     * update the visibility of a single comment
+     * 
+     */
     public function updateComment(int $commentID, string $visibility)
     {
         $query = "UPDATE `comment` SET `is_visible` = ? WHERE id = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
-        $statement->execute([$visibility,$commentID]);
+        $statement->execute([$visibility, $commentID]);
     }
 
+    /**
+     * update a single post
+     */
     public function updateArticle(int $articleID, string $title, string $chapo, string $content, string $isVisible)
     {
         $query = "UPDATE `article` SET `last_update` = ?, `title` = ?, `chapo` = ?, `content` = ?, `is_visible` = ? WHERE id = ?;";
