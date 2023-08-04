@@ -10,6 +10,7 @@ class DatabaseConnection
         $this->database = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME  . ';charset=utf8', DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
 
+
     /**
      * check if a connexion to the database already exist
      * 
@@ -23,6 +24,7 @@ class DatabaseConnection
 
         return self::$instance;
     }
+
 
     /**
      * if there is no connection already established create one

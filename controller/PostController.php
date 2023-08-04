@@ -5,6 +5,7 @@ class PostController
     /**
      * display the bog page with all the visible post 
      * 
+     * @return void
      */
     public function displayListPost()
     {
@@ -14,9 +15,11 @@ class PostController
         $view->render('./view/blogpage.php', ['posts' => $posts]);
     }
 
+
     /**
      * display a bog post page
      * 
+     * @return void
      */
     public function displayPost()
     {
@@ -28,9 +31,11 @@ class PostController
         $view->render('./view/blogpost.php', ['post' => $post, 'comments' => $comments]);
     }
 
+    
     /**
      * call the manager to create a new comment
      * 
+     * @return void
      */
     public function addComment()
     {

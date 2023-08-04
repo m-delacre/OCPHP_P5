@@ -5,6 +5,7 @@ class LoginController
     /**
      * Display the connexion page
      * 
+     * @return void
      */
     public function displayLogin()
     {
@@ -33,9 +34,11 @@ class LoginController
         }
     }
 
+    
     /**
      * disconect the user and end the session
      * 
+     * @return void
      */
     public function logout()
     {
@@ -43,9 +46,11 @@ class LoginController
         header('Location: ' . './index.php?action=home');
     }
 
+
     /**
      * display the registration page
      * 
+     * @return void
      */
     public function displayRegister()
     {

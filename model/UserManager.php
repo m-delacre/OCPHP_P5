@@ -9,6 +9,7 @@ class UserManager
         $this->connection = $connection;
     }
 
+    
     /**
      * check if the email exist and match in the database
      * if yes create a User object with all user info
@@ -29,6 +30,7 @@ class UserManager
         return null;
     }
 
+
     /**
      * get a specific user by his id
      * 
@@ -48,9 +50,11 @@ class UserManager
         }
     }
 
+
     /**
      * create a new user in database
      * 
+     * @return void
      */
     public function registerUser(
         string $email,

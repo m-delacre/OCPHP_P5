@@ -9,9 +9,11 @@ class AdminManager
         $this->connection = $connection;
     }
 
+    
     /**
      * create new post in the database
      * 
+     * @return void
      */
     public function postArticle(int $userID, string $title, string $chapo, string $content, bool $visible)
     {
@@ -22,9 +24,11 @@ class AdminManager
         $statement->execute([$userID, $currentDate, $title, $chapo, $content, $visible]);
     }
 
+
     /**
      * update the visibility of a single comment
      * 
+     * @return void
      */
     public function updateComment(int $commentID, string $visibility)
     {
@@ -33,8 +37,11 @@ class AdminManager
         $statement->execute([$visibility, $commentID]);
     }
 
+
     /**
      * update a single post
+     * 
+     * @return void
      */
     public function updateArticle(int $articleID, int $userID,string $title, string $chapo, string $content, string $isVisible)
     {
@@ -44,6 +51,7 @@ class AdminManager
         $currentDate = $currentDateTime->format('Y-m-d');
         $statement->execute([$userID, $currentDate, $title, $chapo, $content, $isVisible, $articleID]);
     }
+
 
     /**
      * get all the admin from the database

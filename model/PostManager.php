@@ -9,6 +9,7 @@ class PostManager
         $this->connection = $connection;
     }
 
+
     /**
      * get all the visible blog post from database
      * 
@@ -27,6 +28,7 @@ class PostManager
         return $posts;
     }
 
+
     /**
      * get all the blog post from database
      * 
@@ -44,6 +46,7 @@ class PostManager
         }
         return $posts;
     }
+
 
     /**
      * get a single visible blog post from database
@@ -64,6 +67,7 @@ class PostManager
         return null;
     }
 
+    
     /**
      * get a single blog post from database
      * 
@@ -83,9 +87,11 @@ class PostManager
         return null;
     }
 
+
     /**
      * delete a specific blog post from database
      * 
+     * @return void
      */
     public function deleteArticle(int $id)
     {

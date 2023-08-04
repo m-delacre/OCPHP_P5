@@ -5,6 +5,7 @@ class ViewController
     /**
      * display the home page
      * 
+     * @return void
      */
     public function displayHome()
     {
@@ -12,9 +13,11 @@ class ViewController
         $view->render('./view/homepage.php');
     }
 
+
     /**
      * display error page
      * 
+     * @return void
      */
     public function displayNotFound()
     {
@@ -22,9 +25,11 @@ class ViewController
         $view->render('./view/errorpage.php');
     }
 
+
     /**
      * call the mail service to send a message 
      * 
+     * @return void
      */
     public function sendContactForm()
     {
@@ -39,9 +44,11 @@ class ViewController
         }
     }
 
+    
     /**
      * display a specific error page if a not admin user try to access administration
      * 
+     * @return void
      */
     public function displayNotAuthorized()
     {

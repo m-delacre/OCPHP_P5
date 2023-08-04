@@ -5,6 +5,7 @@ class AdminController
     /**
      * Display the Administration page
      * 
+     * @return void
      */
     public function displayAdministrationPage()
     {
@@ -12,10 +13,12 @@ class AdminController
         $view = new View();
         $view->render('./view/administrationpage.php');
     }
+    
 
     /**
      * check if the user is admin
      * 
+     * @return void
      */
     public static function checkAdmin()
     {
@@ -23,6 +26,7 @@ class AdminController
             header('Location: ' . './index.php?action=notAuthorized');
         }
     }
+
 
     /**
      * check if the user is admin
@@ -38,9 +42,11 @@ class AdminController
         }
     }
 
+
     /**
      * Display the creation post page
      * 
+     * @return void
      */
     public function displayCreatePost()
     {
@@ -49,9 +55,11 @@ class AdminController
         $view->render('./view/createpostpage.php');
     }
 
+
     /**
      * call the manager to create the post and display the blog page
      * 
+     * @return void
      */
     public function publishPost()
     {
@@ -60,9 +68,11 @@ class AdminController
         header('Location: ' . './index.php?action=blog');
     }
 
+
     /**
      * Display the page to manage comments
      * 
+     * @return void
      */
     public function displayPendingComment()
     {
@@ -76,6 +86,7 @@ class AdminController
     /**
      * call the manager to set the visibility of a new comment
      * 
+     * @return void
      */
     public function manageComment()
     {
@@ -86,9 +97,11 @@ class AdminController
         header('Location: ' . './index.php?action=showPost&id=' . $_GET['articleID']);
     }
 
+
     /**
      * Display the page to update a post
      * 
+     * @return void
      */
     public function displayUpdatePost()
     {
@@ -105,9 +118,11 @@ class AdminController
         $view->render('./view/updatearticlepage.php', ['post' => $post, 'authors' => $authors]);
     }
 
+
     /**
      * call the manager to update a post
      * 
+     * @return void
      */
     public function updateArticle()
     {
@@ -116,8 +131,11 @@ class AdminController
         header('Location: ' . './index.php?action=blog');
     }
 
+
     /**
      * display the page with all the posts visible or not to manage them
+     * 
+     * @return void
      */
     public function displayAdminArticle()
     {
@@ -128,9 +146,11 @@ class AdminController
         $view->render('./view/adminarticlepage.php', ['posts' => $posts]);
     }
 
+
     /**
      * Display the page to confirm is the user really want to delete this post
      * 
+     * @return void
      */
     public function displayDeleteArticle()
     {
@@ -141,9 +161,11 @@ class AdminController
         $view->render('./view/deletearticlepage.php', ['post' => $post]);
     }
 
+
     /**
      * call the manager to delete a post
      * 
+     * @return void
      */
     public function deleteArticle()
     {
