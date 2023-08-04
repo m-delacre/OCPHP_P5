@@ -22,19 +22,19 @@
     <form action="./index.php?action=contactForm" method="POST">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nom-help" require>
+            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nom-help" required>
         </div>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prenom</label>
-            <input type="text" class="form-control" id="prenom" name="prenom" aria-describedby="prenom-help" require>
+            <input type="text" class="form-control" id="prenom" name="prenom" aria-describedby="prenom-help" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" aria-describedby="email-help" require>
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="email-help" required>
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Votre message</label>
-            <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message" require></textarea>
+            <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>

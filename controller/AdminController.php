@@ -25,6 +25,20 @@ class AdminController
     }
 
     /**
+     * check if the user is admin
+     * 
+     * @return bool
+     */
+    public static function isAdmin(): bool
+    {
+        if (isset($_SESSION['user_isAdmin']) || $_SESSION['user_isAdmin']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Display the creation post page
      * 
      */
@@ -78,16 +92,17 @@ class AdminController
      */
     public function displayUpdatePost()
     {
-        $postManager = new PostManager(DatabaseConnection::getInstance());
         if (isset($_GET['articleId']) && is_numeric($_GET['articleId'])) {
+            $postManager = new PostManager(DatabaseConnection::getInstance());
             $post = $postManager->getPost($_GET['articleId']);
+            $adminManager = new AdminManager(DatabaseConnection::getInstance());
+            $authors = $adminManager->getAllAdmin();
         } else {
             $view = new View();
             $view->render('./view/errorpage.php');
         }
-
         $view = new View();
-        $view->render('./view/updatearticlepage.php', ['post' => $post]);
+        $view->render('./view/updatearticlepage.php', ['post' => $post, 'authors' => $authors]);
     }
 
     /**
@@ -97,7 +112,7 @@ class AdminController
     public function updateArticle()
     {
         $adminManager = new AdminManager(DatabaseConnection::getInstance());
-        $adminManager->updateArticle($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapo']), htmlspecialchars($_POST['content']), htmlspecialchars($_POST['is_visible']));
+        $adminManager->updateArticle($_GET['id'], $_POST['authorID'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapo']), htmlspecialchars($_POST['content']), htmlspecialchars($_POST['is_visible']));
         header('Location: ' . './index.php?action=blog');
     }
 

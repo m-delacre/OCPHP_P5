@@ -37,9 +37,7 @@ class PostController
         if (isset($_POST['comment'], $_GET['id']) && !empty($_POST['comment']) && is_numeric($_GET['id'])) {
             $commentManager = new CommentManager(DatabaseConnection::getInstance());
             $commentManager->postComment($_SESSION['user_id'], $_GET['id'], htmlspecialchars($_POST['comment']));
-            $this->displayPost();
-        } else {
-            $this->displayPost();
         }
+        $this->displayPost();
     }
 }
