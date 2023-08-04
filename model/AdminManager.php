@@ -36,12 +36,30 @@ class AdminManager
     /**
      * update a single post
      */
-    public function updateArticle(int $articleID, string $title, string $chapo, string $content, string $isVisible)
+    public function updateArticle(int $articleID, int $userID,string $title, string $chapo, string $content, string $isVisible)
     {
-        $query = "UPDATE `article` SET `last_update` = ?, `title` = ?, `chapo` = ?, `content` = ?, `is_visible` = ? WHERE id = ?;";
+        $query = "UPDATE `article` SET `id_user` = ?, `last_update` = ?, `title` = ?, `chapo` = ?, `content` = ?, `is_visible` = ? WHERE id = ?;";
         $statement = $this->connection->getConnection()->prepare($query);
         $currentDateTime = new DateTime('now');
         $currentDate = $currentDateTime->format('Y-m-d');
-        $statement->execute([$currentDate, $title, $chapo, $content, $isVisible, $articleID]);
+        $statement->execute([$userID, $currentDate, $title, $chapo, $content, $isVisible, $articleID]);
+    }
+
+    /**
+     * get all the admin from the database
+     * 
+     * @return array of objects
+     */
+    public function getAllAdmin()
+    {
+        $users = [];
+        $query = "SELECT * FROM `user` WHERE `is_admin`= 1 ;";
+        $statement = $this->connection->getConnection()->prepare($query);
+        $statement->execute();
+        while (($row = $statement->fetch())) {
+            $user = new User($row);
+            $users[] = $user;
+        }
+        return $users;
     }
 }

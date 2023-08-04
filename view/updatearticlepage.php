@@ -2,16 +2,25 @@
     <form class="modifyArticle-form" action="<?= './index.php?action=updateArticle&id=' . $post->getId(); ?>" method="POST">
         <div class="formInput mb-3">
             <label for="title" class="form-label">Titre :</label>
-            <input type="text" class="form-control" id="title" name="title" value="<?= $post->getTitle() ?>" require>
+            <input type="text" class="form-control" id="title" name="title" value="<?= $post->getTitle() ?>" required>
+        </div>
+        <div class="formInput mb-3">
+            <label for="authorID">Auteur de l'article :</label>
+            <input list="listAuthor" id="authorID" name="authorID" required/>
+            <datalist id="listAuthor">
+                <?php foreach ($authors as $author) : ?>
+                    <option value="<?= $author->getId(); ?>"><?= $author->getPseudo(); ?></option>
+                <?php endforeach; ?>
+            </datalist>
         </div>
         <div class="formInput mb-3">
             <label for="chapo" class="form-label">Chapeau (500 caractères) :</label>
-            <textarea type="textarea" class="form-control txtarea" id="chapo" name="chapo" maxlength="500" require><?= $post->getChapo() ?>    
+            <textarea type="textarea" class="form-control txtarea" id="chapo" name="chapo" maxlength="500" required><?= $post->getChapo() ?>    
         </textarea>
         </div>
         <div class="formInput mb-3">
             <label for="content" class="form-label">Article :</label>
-            <textarea type="textarea" class="form-control txtarea" id="content" name="content" require><?= $post->getContent() ?>
+            <textarea type="textarea" class="form-control txtarea" id="content" name="content" required><?= $post->getContent() ?>
         </textarea>
         </div>
         <div class="mb-3">

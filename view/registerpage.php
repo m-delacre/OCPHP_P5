@@ -18,7 +18,7 @@
                 <input type="lastName" name="lastName" class="form-control" id="lastName" maxlength="255" required>
             </div>
             <div class="mb-3">
-                <label for="pseudo" class="form-label">Pseudo :</label>
+                <label for="pseudo" class="form-label">Pseudo (max 15 caractères) :</label>
                 <input type="pseudo" name="pseudo" class="form-control" id="pseudo" maxlength="15" required>
             </div>
             <div class="mb-3">
