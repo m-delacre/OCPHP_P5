@@ -2,15 +2,15 @@
     <form action="./index.php?action=postNewArticle" method="POST">
         <div class="mb-3">
             <label for="title" class="form-label">Titre :</label>
-            <input type="title" class="form-control" id="title" name="title" require>
+            <input type="title" class="form-control" id="title" name="title" required>
         </div>
         <div class="mb-3">
             <label for="chapo" class="form-label">Chapeau (500 caractère max) :</label>
-            <textarea type="textarea" class="form-control" id="chapo" maxlength="500" name="chapo" require></textarea>
+            <textarea type="textarea" class="form-control" id="chapo" maxlength="500" name="chapo" required></textarea>
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Article :</label>
-            <input type="content" class="form-control" id="content" name="content" require>
+            <textarea type="textarea" class="form-control" id="content" name="content" required></textarea>
         </div>
         <div class="mb-3">
             <input type="radio" id="visible" name="is_visible" value=1>

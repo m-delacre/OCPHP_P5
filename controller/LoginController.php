@@ -13,7 +13,6 @@ class LoginController
             $userManager = new UserManager(DatabaseConnection::getInstance());
             $user = $userManager->connexion($_POST['email']);
             if ($user != null) {
-                var_dump($user);
                 if (htmlspecialchars($_POST['email']) === $user->getMail() && password_verify(htmlspecialchars($_POST['password']), $user->getPassword())) {
                     $_SESSION['user_pseudo'] = $user->getPseudo();
                     $_SESSION['user_id'] = $user->getId();
@@ -25,8 +24,9 @@ class LoginController
                     header('Location: ' . './index.php?action=home');
                 }
             } else {
+                $message = "Erreur dans les champs renseignés !";
                 $view = new View();
-                $view->render('./view/loginpage.php');
+                $view->render('./view/loginpage.php', ['message' => $message]);
             }
         } else {
             $view = new View();
