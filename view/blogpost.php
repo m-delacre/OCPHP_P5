@@ -1,6 +1,9 @@
 <div>
     <?php if ($post == null) : ?>
-        <p>L'article n'existe pas.</p>
+        <div class="container-sm mt-5">
+            <p >L'article n'existe pas.</p>
+            <p>Retourner sur la page de <a href="./index.php?action=blog">blog</a></p>
+        </div>
     <?php else : ?>
         <article class="container-sm blogpost">
             <div class="blogpost-header">

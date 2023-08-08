@@ -35,7 +35,7 @@ class AdminController
      */
     public static function isAdmin(): bool
     {
-        if (isset($_SESSION['user_isAdmin']) || $_SESSION['user_isAdmin']) {
+        if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_isAdmin']) {
             return true;
         } else {
             return false;

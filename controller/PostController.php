@@ -23,15 +23,20 @@ class PostController
      */
     public function displayPost()
     {
-        $postManager = new PostManager(DatabaseConnection::getInstance());
-        $post = $postManager->getVisiblePost($_GET['id']);
-        $commentManager = new CommentManager(DatabaseConnection::getInstance());
-        $comments = $commentManager->getListVisibleComment($_GET['id']);
-        $view = new View();
-        $view->render('./view/blogpost.php', ['post' => $post, 'comments' => $comments]);
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $postManager = new PostManager(DatabaseConnection::getInstance());
+            $post = $postManager->getVisiblePost($_GET['id']);
+            $commentManager = new CommentManager(DatabaseConnection::getInstance());
+            $comments = $commentManager->getListVisibleComment($_GET['id']);
+            $view = new View();
+            $view->render('./view/blogpost.php', ['post' => $post, 'comments' => $comments]);
+        } else {
+            $view = new View();
+            $view->render('./view/errorpage.php');
+        }
     }
 
-    
+
     /**
      * call the manager to create a new comment
      * 
